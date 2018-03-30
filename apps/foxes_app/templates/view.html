@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{other_user.lastname}}</title>
+</head>
+<body>
+        <h2>{{other_user.lastname}}'s Profile</h2>
+        <ul>
+            <p>Name: {{other_user.lastname}}</p>
+            <p>Email Address: {{other_user.email}} </p>
+        </ul>
+        <br>
+        <p><a href="/home">Home</a></p>
+        <form action="/logout">
+            {% csrf_token %}
+                <button type="submit" value="logout">Logout</button>
+       </form>
+    
+</body>
+</html>

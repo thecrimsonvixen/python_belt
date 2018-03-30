@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create a New Fox</title>
+</head>
+<body>
+
+        {% if messages %}
+        <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class ="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+
+
+    <h1>Create a New Fox</h1>
+    <form action="/create" method='POST'>
+        {% csrf_token %}
+          
+          <label for="foxname"><b>Fox Name</b></label>
+          <input type="text" name="foxname"><br><br>
+          
+          <label for="foxcolor"><b>Fox Color</b></label>
+          <select name="foxcolor">
+                <option value="Red">Red</option>
+                <option value="Orange">Orange</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Purple">Purple</option>
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Silver">Silver</option>
+              </select><br><br>
+
+          <label for="foxdescription"><b>Fox Description</b></label>
+          <input type="text" name="foxdescription"><br><br>
+
+          <label for="foxbirthdate"><b>Fox Birthdate</b></label>
+          <input type="date" name="foxbirthdate"><br><br>
+      
+            <button type="submit" value="register">Create Your Fox!</button> <!-- is it okay that the value here is register? -->
+      </form>
+</body>
+</html>

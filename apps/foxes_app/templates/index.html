@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login/Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+
+    {% if messages %}
+        <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class ="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+
+    <h1>Please Sign In</h1><br>
+    <form action="/register" method='POST'>
+        {% csrf_token %}
+          <h2>Registration</h2><br>
+          
+          <label for="firstname"><b>Name: </b></label>
+          <input type="text" name="firstname"><br><br>
+          
+          <label for="lastname"><b>Alias: </b></label>
+          <input type="text" name="lastname"><br><br>
+
+          <label for="email"><b>Email: </b></label>
+          <input type="text" name="email"><br><br>
+      
+          <label for="password"><b>Password: </b></label>
+          <input type="password" name="password">
+
+          <h5>* Password should be at least 8 characters.</h5>
+      
+          <label for="passwordverify"><b>Confirm PW:</b></label>
+          <input type="password" name="passwordverify"><br><br>
+
+          <label for="birthdate"><b>Date of Birth: </b></label>
+          <input type="date" name="birthdate"><br><br>
+      
+            <button type="submit" value="register">Register</button>
+      </form><br><br>
+
+      <form action="login" method='POST'>
+         {% csrf_token %}
+        <h2>Login</h2><br>
+
+        <label for="emaillogin"><b>Email: </b></label>
+        <input type="text" name="emaillogin"><br><br>
+    
+        <label for="passwordlogin"><b>Password: </b></label>
+        <input type="password" name="passwordlogin"><br><br>
+    
+          <button type="submit" value="login">Login</button>
+    </form>
+
+</body>
+</html>
